@@ -40,4 +40,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("HatCount:" + hatCount);
         textComponent.text = "HatCount : " + hatCount;
     }
+
+    //å∏ÇÁÇ∑ä÷êî
+    public void SubtractHatCount()
+    {
+        hatCount = hatCount - 1;
+        Debug.Log("HatCount:" + hatCount);
+        textComponent.text = "HatCount : " + hatCount;
+    }
 }
