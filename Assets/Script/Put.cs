@@ -13,12 +13,12 @@ public class PickUp : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey("space") || (Input.GetKey(KeyCode.E)))
-        {
-            Vector3 tmp = GameObject.Find("player").transform.position;
-            Instantiate(hat, new Vector3(tmp.x, tmp.y, tmp.z), Quaternion.identity);
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKey("space") || (Input.GetKey(KeyCode.E)))
+    //    {
+    //        Vector3 tmp = GameObject.Find("player").transform.position;
+    //        Instantiate(hat, new Vector3(tmp.x, tmp.y, tmp.z), Quaternion.identity);
+    //    }
+    //}
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Hat : MonoBehaviour
 {
     public GameManager gameManager;
-    bool isGet;
+    bool[] isGet;
     //private GameObject parent;//親
 
     // Start is called before the first frame update
@@ -23,6 +23,7 @@ public class Hat : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     { //2Dの衝突判定
+        //プレイヤーにあたったら帽子が頭に乗る
         if (col.gameObject.tag == "Player")
         {
             gameManager.AddHatCount();
@@ -33,6 +34,8 @@ public class Hat : MonoBehaviour
             transform.position = col.transform.position + pos;
 
             col.gameObject.GetComponent<Player>().TakeHat(gameObject);
+
+
         }
     }
 
