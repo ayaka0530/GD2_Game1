@@ -8,12 +8,16 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     public GameManager gameManager;
     public GameObject[] hat;
+    public Hand hand;
+
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        hand = GameObject.Find("PlayerHand").GetComponent<Hand>();
 
+        //帽子の最大値が5個
         hat = new GameObject[5];
     }
 
@@ -40,7 +44,7 @@ public class Player : MonoBehaviour
 
             //プレイヤーの前に置く
             Vector3 pos = new Vector3(2, 0, 0);
-            hat[0].transform.position = transform.position + pos;
+            hat[0].transform.position = hand.TeachHatPos();
 
             hat[0].transform.parent = null;
 
@@ -50,11 +54,13 @@ public class Player : MonoBehaviour
             hat[3] = hat[4];
             hat[4] = null;
 
+            //for(int i = 0;i>5; ++i)
+            //{
+            //    hat[i] = hat[i + 1];
+
+            //}
 
             //帽子が無くなったらキーを押しても何もならない
-
-
- 
         }
     }
 
@@ -85,6 +91,14 @@ public class Player : MonoBehaviour
         {
             this.hat[5] = hat;
         }
+
+        //for (int i = 0; i > 5; i++)
+        //{
+        //    if (this.hat[i] == null)
+        //    {
+        //        this.hat[i] = hat;
+        //    }
+        //}
 
     }
 }

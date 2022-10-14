@@ -28,9 +28,12 @@ public class Hat : MonoBehaviour
         {
             gameManager.AddHatCount();
             //parent = this.gameObject.transform.parent.gameObject;
+
+            //プレイヤータグと帽子を親子付け
             transform.parent = col.transform;
 
             Vector3 pos = new Vector3(0, 1, 0);
+            //プレイヤータグの物体の上に帽子を置く
             transform.position = col.transform.position + pos;
 
             col.gameObject.GetComponent<Player>().TakeHat(gameObject);
