@@ -26,13 +26,16 @@ public class Hat : MonoBehaviour
         //プレイヤーにあたったら帽子が頭に乗る
         if (col.gameObject.tag == "Player")
         {
+            int hatCount;
+            hatCount = gameManager.TeachHatCount();
+
             gameManager.AddHatCount();
             //parent = this.gameObject.transform.parent.gameObject;
 
             //プレイヤータグと帽子を親子付け
             transform.parent = col.transform;
 
-            Vector3 pos = new Vector3(0, 1, 0);
+            Vector3 pos = new Vector3(0, hatCount + 1, 0);
             //プレイヤータグの物体の上に帽子を置く
             transform.position = col.transform.position + pos;
 

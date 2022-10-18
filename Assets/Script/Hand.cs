@@ -7,12 +7,20 @@ public class Hand : MonoBehaviour
     public GameManager gameManager;
     public GameObject[] hat;
     public GameObject player;
-    public Vector3 hatPos;
+    public GameObject grabHat;
 
 
     public Vector3 TeachHatPos()
     {
-        return hatPos;
+        if (grabHat == null)
+        {
+            return transform.position;
+        }
+        else
+        {
+            Vector3 pos = new Vector3(0, 1, 0);
+            return grabHat.transform.position + pos;
+        }
     }
 
     // Start is called before the first frame update
@@ -32,13 +40,18 @@ public class Hand : MonoBehaviour
         //”ÍˆÍ‚Æ–XŽqƒ^ƒO‚ª‚ ‚½‚Á‚½‚ç
         if (col.gameObject.tag == "Hat")
         {
-            hatPos = col.transform.position;
-            Debug.Log("Hit Hat:" + hatPos);
+            grabHat = col.gameObject;
+
+            Debug.Log("Hit Hat:" + hat);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D col)
     {
-        
+        if (col.gameObject.tag == "Hat")
+        {
+            grabHat = null;
+            Debug.Log("Leave Hat:" + hat);
+        }
     }
 }

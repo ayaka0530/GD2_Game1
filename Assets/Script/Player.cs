@@ -39,20 +39,30 @@ public class Player : MonoBehaviour
         //帽子を置く
         if (Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.E)))//一回押したら(GetKeyDown)
         {
+            int hatCount;
+            hatCount = gameManager.TeachHatCount();
+            Debug.Log("HatNum:" + hatCount);
+
             //ひとづつ帽子を消費する
             gameManager.SubtractHatCount();
 
             //プレイヤーの前に置く
             Vector3 pos = new Vector3(2, 0, 0);
-            hat[0].transform.position = hand.TeachHatPos();
+            if(hatCount <= 0 || hatCount >= 6)
+            {
+                Debug.LogError("hatOcunt:" + hatCount);
+            }
+            hat[hatCount - 1].transform.position = transform.position + pos;
 
-            hat[0].transform.parent = null;
+            hat[hatCount - 1].transform.position = hand.TeachHatPos();
 
-            hat[0] = hat[1];//1が0にコピー
-            hat[1] = hat[2];
-            hat[2] = hat[3];
-            hat[3] = hat[4];
-            hat[4] = null;
+            hat[hatCount - 1].transform.parent = null;
+
+            //hat[0] = hat[1];//1が0にコピー
+            //hat[1] = hat[2];
+            //hat[2] = hat[3];
+            //hat[3] = hat[4];
+            //hat[4] = null;
 
             //for(int i = 0;i>5; ++i)
             //{
@@ -60,7 +70,6 @@ public class Player : MonoBehaviour
 
             //}
 
-            //帽子が無くなったらキーを押しても何もならない
         }
     }
 
@@ -87,10 +96,6 @@ public class Player : MonoBehaviour
         {
             this.hat[4] = hat;
         }
-        else if (this.hat[5] == null)
-        {
-            this.hat[5] = hat;
-        }
 
         //for (int i = 0; i > 5; i++)
         //{
@@ -101,4 +106,5 @@ public class Player : MonoBehaviour
         //}
 
     }
+
 }
