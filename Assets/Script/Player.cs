@@ -42,21 +42,23 @@ public class Player : MonoBehaviour
             int hatCount;
             hatCount = gameManager.TeachHatCount();
             Debug.Log("HatNum:" + hatCount);
-
-            //ひとづつ帽子を消費する
-            gameManager.SubtractHatCount();
-
             //プレイヤーの前に置く
             Vector3 pos = new Vector3(2, 0, 0);
-            if(hatCount <= 0 || hatCount >= 6)
+
+            if (hatCount > 0)
             {
-                Debug.LogError("hatOcunt:" + hatCount);
+                //ひとづつ帽子を消費する
+                gameManager.SubtractHatCount();
+
+                hat[hatCount - 1].transform.position = transform.position + pos;
+
+                hat[hatCount - 1].transform.position = hand.TeachHatPos();
+
+                hat[hatCount - 1].transform.parent = null;
+
+                hat[hatCount - 1].GetComponent<Hat>().PutHat();
             }
-            hat[hatCount - 1].transform.position = transform.position + pos;
 
-            hat[hatCount - 1].transform.position = hand.TeachHatPos();
-
-            hat[hatCount - 1].transform.parent = null;
 
             //hat[0] = hat[1];//1が0にコピー
             //hat[1] = hat[2];
@@ -70,6 +72,10 @@ public class Player : MonoBehaviour
 
             //}
 
+            //if (hatCount <= 0 || hatCount >= 6)
+            //{
+            //    Debug.LogError("hatOcunt:" + hatCount);
+            //}
         }
     }
 

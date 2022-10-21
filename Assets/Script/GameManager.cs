@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour
 
     public void AddHatCount()
     {
-        hatCount = hatCount + 1;
+        
+            hatCount = hatCount + 1;
         //Debug.Log("HatCount:" + hatCount);
         textComponent.text = "HatCount : " + hatCount;
     }
@@ -44,13 +45,14 @@ public class GameManager : MonoBehaviour
     //å∏ÇÁÇ∑ä÷êî
     public void SubtractHatCount()
     {
-        hatCount = hatCount - 1;
+            hatCount = hatCount - 1;
         //Debug.Log("HatCount:" + hatCount);
         textComponent.text = "HatCount : " + hatCount;
     }
 
     public int TeachHatCount() 
     {
+
         return hatCount;
     }
 }

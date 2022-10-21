@@ -7,6 +7,7 @@ public class Hat : MonoBehaviour
 {
     public GameManager gameManager;
     bool[] isGet;
+
     //private GameObject parent;//e
 
     // Start is called before the first frame update
@@ -40,9 +41,22 @@ public class Hat : MonoBehaviour
             transform.position = col.transform.position + pos;
 
             col.gameObject.GetComponent<Player>().TakeHat(gameObject);
-
-
         }
     }
 
+    public void FlyHat()
+    {
+        int speed = 5;
+        Vector3 pos = transform.position;
+        pos.y += speed;
+        GetComponent<Rigidbody2D>().velocity = new Vector3(0, speed, 0);
+        Debug.Log("ŒÄ‚Ño‚³‚ê‚Ü‚µ‚½");
+        CancelInvoke("PutHat");
+    }
+
+    public void PutHat()
+    {
+        //3.5•bŒã‚ÉŠÖ”‚ğŒÄ‚Ño‚·
+        Invoke("FlyHat", 2.0f);
+    }
 }
