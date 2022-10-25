@@ -501,6 +501,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5087338907141920207, guid: 5cc367f901a234648a188400335d6158, type: 3}
+      propertyPath: m_Color.b
+      value: 0.15138839
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087338907141920207, guid: 5cc367f901a234648a188400335d6158, type: 3}
+      propertyPath: m_Color.g
+      value: 0.15138839
+      objectReference: {fileID: 0}
+    - target: {fileID: 5087338907141920207, guid: 5cc367f901a234648a188400335d6158, type: 3}
+      propertyPath: m_Color.r
+      value: 0.509434
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc367f901a234648a188400335d6158, type: 3}
 --- !u!1 &898458635
@@ -1000,7 +1012,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   hat: []
   player: {fileID: 0}
-  hatPos: {x: 0, y: 0, z: 0}
+  grabHat: {fileID: 0}
 --- !u!50 &1343509847
 Rigidbody2D:
   serializedVersion: 4
@@ -1940,6 +1952,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 129223730579956230, guid: 5cc367f901a234648a188400335d6158, type: 3}
       propertyPath: m_Name
+      value: Hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 129223730579956230, guid: 5cc367f901a234648a188400335d6158, type: 3}
+      propertyPath: m_TagString
       value: Hat
       objectReference: {fileID: 0}
     - target: {fileID: 4323992307562555653, guid: 5cc367f901a234648a188400335d6158, type: 3}

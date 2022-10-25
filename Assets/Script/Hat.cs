@@ -7,6 +7,7 @@ public class Hat : MonoBehaviour
 {
     public GameManager gameManager;
     bool[] isGet;
+    //deltatime
 
     //private GameObject parent;//êe
 
@@ -41,12 +42,24 @@ public class Hat : MonoBehaviour
             transform.position = col.transform.position + pos;
 
             col.gameObject.GetComponent<Player>().TakeHat(gameObject);
+
+            //CancelInvoke("FlyHat");
+            //Vector3Å@hatScale = gameObject.transform.localScale;
+            //hatScale.y = 1;
+            //gameObject.transform.localScale = hatScale;
+
+
         }
     }
 
     public void FlyHat()
     {
-        int speed = 5;
+        Vector3 hatScale;
+        hatScale = gameObject.transform.localScale;
+        hatScale.y = 1;
+        gameObject.transform.localScale = hatScale;
+
+        int speed = 10;
         Vector3 pos = transform.position;
         pos.y += speed;
         GetComponent<Rigidbody2D>().velocity = new Vector3(0, speed, 0);
@@ -56,7 +69,14 @@ public class Hat : MonoBehaviour
 
     public void PutHat()
     {
+        Vector3 hatScale;
+        hatScale = gameObject.transform.localScale;
+
+        hatScale.y -= 0.9f;
+        gameObject.transform.localScale = hatScale;
+
         //3.5ïbå„Ç…ä÷êîÇåƒÇ—èoÇ∑
         Invoke("FlyHat", 2.0f);
+
     }
 }
